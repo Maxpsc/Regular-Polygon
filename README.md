@@ -33,7 +33,10 @@ a Regular Polygon generator that based on `D3.js` which support adding dragCallb
             console.log(arr);
         }
     }
-查看 [DEMO1](./demo1.html "自定义生成正多边形")，[DEMO2](./demo2.html "添加关联数据和拖拽事件以改变数据")
+
+###Demo
+[Demo1-自定义生成正多边形](./demo1.html "自定义生成正多边形")   
+[Demo2-添加关联数据和拖拽事件以改变数据](./demo2.html "添加关联数据和拖拽事件以改变数据")
 
 ###Remark
 1.异步修改对象属性  
