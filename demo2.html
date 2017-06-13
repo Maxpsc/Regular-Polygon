@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Polygon DEMO2</title>
+	<script src="../lib/d3.min.js"></script>
+	<link rel="stylesheet" href="polygon.css">
+	<style>
+		#target{
+			width:60%;
+			height:400px;
+			margin:20px auto;
+			border:#ccc solid 1px;
+		}
+	</style>
+</head>
+<body>
+	<div class="section">
+		<h1>Polygon DEMO2</h1>
+		<h4>附加拖拽点，实现可交互六维能力图</h4>
+		<div class="config-input">
+			<label for="sideNumber">
+				请输入十维能力数组，假设能力值为1-10,的整数，数组长度为10，以英文','分隔：
+				<input type="text" value="1,2,3,4,5,6,7,8,9,10" id="levelArr" />
+			</label>
+            <button id="apply-btn">Apply</button>
+		</div>
+        <h4 id="curLevelArr"></h4>
+		<div id="target"></div>
+	</div>
+
+	<script src="polygon.js"></script>
+	<script>
+		var dLevelArr = document.getElementById('levelArr');
+		var dApplyBtn = document.getElementById('apply-btn');
+		var dCLevelArr = document.getElementById('curLevelArr');
+		var buildPolygon = function(){
+            var reg = /^((\d+\,){9}\d+)$/;
+            if(!reg.test(dLevelArr.value)){
+                alert("数组格式不正确，请重新输入");
+                return;
+            }
+            console.log('begin to build~~ ' + new Date());
+            var levelArr = [];
+            dLevelArr.value.split(',').forEach(function(val,index){
+                levelArr.push(parseInt(val));
+            })
+            console.log(levelArr);
+			var config = {
+				id: 'target',
+				sideNumber: 10,
+				innerWidth: 180,
+				levelArr: levelArr,
+                levelRange: [1,10,1],//[min,max,step]
+                dragCallback: function(arr){
+                    console.log(arr);
+                    dCLevelArr.innerText = "当前能力数组：" + arr.join(',');
+                }
+			};
+			//声明后默认显示多边形
+			var myStock = new Polygon(config);
+		}
+		buildPolygon();
+
+		var clickCallback = function(){
+			buildPolygon._throttleID && clearTimeout(buildPolygon._throttleID);
+			buildPolygon._throttleID = setTimeout(function(){
+				buildPolygon();
+			})
+		}
+		dApplyBtn.addEventListener('click',clickCallback,false);
+
+	</script>
+</body>
+</html>
