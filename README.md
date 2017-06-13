@@ -15,10 +15,10 @@
 
     <style>
         #target{
-            width:60%;
-			height:400px;
-			margin:20px auto;
-			border:#ccc solid 1px;
+            	width:60%;
+		height:400px;
+		margin:20px auto;
+		border:#ccc solid 1px;
         }
     </style>
 自行编写config配置，创建Polygon对象，详细config配置请查看[源码](./polygon.js "polygon.js"):
