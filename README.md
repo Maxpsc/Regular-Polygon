@@ -14,8 +14,8 @@
 作为目标元素的DOM节点一定要提前声明宽高，如下：
 
     <style>
-        #target{
-            	width:60%;
+	#target{
+		width:60%;
 		height:400px;
 		margin:20px auto;
 		border:#ccc solid 1px;
