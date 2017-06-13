@@ -2,7 +2,7 @@
 >a Regular Polygon generator that based on `D3.js` which support adding dragCallback.   
 一个基于`D3.js`实现的支持拖拽事件的正多边形生成器
 
-###Usage
+### Usage
 首先需要引入依赖的js和css文件:  
 
     <!--预定义的样式，可根据需要随意更改 -->
@@ -44,11 +44,11 @@
         }
     }
 
-###Demo
+### Demo
 [Demo1-自定义生成正多边形](./demo1.html "自定义生成正多边形")   
 [Demo2-添加关联数据和拖拽事件以改变数据](./demo2.html "添加关联数据和拖拽事件以改变数据")
 
-###Remark
+### Remark
 >1.异步修改对象属性  
 2.自定义样式  
 3.添加级别对应文字提示  
